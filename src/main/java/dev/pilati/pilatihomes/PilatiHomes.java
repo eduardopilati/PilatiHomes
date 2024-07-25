@@ -34,6 +34,8 @@ public class PilatiHomes extends JavaPlugin {
         getCommand("delhome").setTabCompleter(new DelHomeCommand());
 
         databaseDatasource = Datasource.createDataSource();
+
+        
     }
 
     @Override

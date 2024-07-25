@@ -11,13 +11,15 @@ import dev.pilati.pilatihomes.database.Datasource;
 
 public abstract class Repository<P, M> {
 
-    protected Datasource datasource = PilatiHomes.getInstance().getDatasource();
-
     protected abstract M find(P id) throws SQLException;
 
     protected abstract void save(M model) throws SQLException;
 
     protected abstract void delete(M model) throws SQLException;
+
+    protected Datasource getDatasource() {
+        return PilatiHomes.getInstance().getDatasource();
+    }
 
     protected Object executeQuery(
         String sql,
@@ -25,7 +27,7 @@ public abstract class Repository<P, M> {
         RepositoryFunction<ResultSet, Object> handleData
     ) throws SQLException {
     
-        try (Connection connection = datasource.getConnection()) {
+        try (Connection connection = getDatasource().getConnection()) {
             
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 setParameters.apply(statement);
@@ -41,7 +43,7 @@ public abstract class Repository<P, M> {
         RepositoryFunction<PreparedStatement, Void> setParameters
     ) throws SQLException {
         
-        try (Connection connection = datasource.getConnection()) {
+        try (Connection connection = getDatasource().getConnection()) {
             
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 setParameters.apply(statement);
@@ -56,7 +58,7 @@ public abstract class Repository<P, M> {
         RepositoryFunction<ResultSet, P> handleGetKey
     ) throws SQLException {
         
-        try (Connection connection = datasource.getConnection()) {
+        try (Connection connection = getDatasource().getConnection()) {
             
             try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 setParameters.apply(statement);

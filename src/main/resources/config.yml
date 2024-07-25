@@ -12,6 +12,7 @@ database:
 
 # one of the following: [spiralup] [spiraldown] [none]
 teleport:
+  cooldown: 5
   before: 
     pattern: spiraldown
     wait: true
