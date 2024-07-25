@@ -21,7 +21,7 @@ Por ser simples e objetivo esse plugin não tem requisitos ideias para um plugin
 
 ## Como Instalar:
 
-Para instalar deve-se colocar o plugin compilado ou baixado de [Releases](https://github.com/eduardopilati/EnhancedWindCharge/releases) na pasta `plugins` do servidor
+Para instalar deve-se colocar o plugin compilado ou baixado de [Releases](https://github.com/eduardopilati/PilatiHomes/releases) na pasta `plugins` do servidor
 
 ### Compilando
 
