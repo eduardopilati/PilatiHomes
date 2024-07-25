@@ -1,0 +1,41 @@
+name: PilatiHomes
+version: '1.0'
+main: dev.pilati.pilatihomes.PilatiHomes
+api-version: '1.21'
+authors: [ Pilati ]
+description: Simple homes plugin
+load: startup
+commands:
+  home:
+    description: Teleport to your home
+    usage: /home [name]
+  homes:
+    description: List your homes
+    usage: /homes
+  sethome:
+    description: Set your home
+    usage: /sethome [name]
+  delhome:
+    description: Delete your home
+    usage: /delhome [name]
+permissions:
+  pilatihomes.home:
+    description: Teleport to your home
+    default: true
+  pilatihomes.homes:
+    description: List your homes
+    default: true
+  pilatihomes.sethome:
+    description: Set your home
+    default: true
+  pilatihomes.delhome:
+    description: Delete your home
+    default: true
+  pilatihomes.*:
+    description: All PilatiHomes permissions
+    default: true
+    children:
+      pilatihomes.home: true
+      pilatihomes.homes: true
+      pilatihomes.sethome: true
+      pilatihomes.delhome: true

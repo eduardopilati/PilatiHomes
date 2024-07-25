@@ -1,0 +1,33 @@
+
+database:
+  # h2 or mysql
+  driver: h2
+  maximum-pool-size: 10
+  mysql:
+    host: localhost
+    port: 3306
+    database: database
+    username: username
+    password: password
+
+# one of the following: [spiralup] [spiraldown] [none]
+teleport:
+  before: 
+    pattern: spiraldown
+    wait: true
+  after: 
+    pattern: spiralup
+
+patterns-config:
+  spiralup:
+    particle-count: 60
+    radius: 0.5
+    height: 2
+    turns: 3
+    time-in-ticks: 60
+  spiraldown:
+    particle-count: 40
+    radius: 0.5
+    height: 2
+    turns: 2
+    time-in-ticks: 20
